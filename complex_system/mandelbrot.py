@@ -29,9 +29,5 @@ for row_index, Re in enumerate(np.linspace(-2, 1, num=rows)):
         result[row_index, column_index] = mandelbrot(Re, Im, 100)
 
 plt.figure(figsize=(10,10))
-plt.imshow(result.T, cmap='bone', interpolation='bilinear', extent=[-2, 1, -1, 1])
-plt.xticks(color='None')
-plt.yticks(color='None')
-plt.tick_params(length=0)
-plt.show()
+plt.imshow(result.T, cmap='hot', interpolation='bilinear', extent=[-2, 1, -1, 1])
 plt.savefig('figure.png')
