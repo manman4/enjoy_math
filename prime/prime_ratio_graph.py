@@ -13,5 +13,6 @@ for n in range(2, 1000001):
         x1.append(n)
         y1.append(n / (math.log(n) * pi))
 
+
 plt.plot(x1, y1)
 plt.show()
