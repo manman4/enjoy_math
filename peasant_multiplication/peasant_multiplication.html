@@ -1,75 +1,79 @@
 <html>
+
 <head>
   <meta http-equiv="Content-Type" context="text/html; charset=UTF-8" />
   <meta charset="UTF-8" />
   <title>peasant multiplication</title>
-<script>
+  <script>
 
-function doCalc() {
-    var txtN1 = document.getElementById("txtN1");
-    var txtN2 = document.getElementById("txtN2");
-    var n1, n2, strResult;
-    var vWork = [];
-    var vOut = [];
+    function doCalc() {
+      var txtN1 = document.getElementById("txtN1");
+      var txtN2 = document.getElementById("txtN2");
+      var n1, n2, strResult;
+      var vWork = [];
+      var vOut = [];
 
-    n1 = parseInt(txtN1.value, 10);
-    n2 = parseInt(txtN2.value, 10);
+      n1 = parseInt(txtN1.value, 10);
+      n2 = parseInt(txtN2.value, 10);
 
-    vOut.push("  " + n1 + " * " + n2);
+      vOut.push("  " + n1 + " * " + n2);
 
-    while (1) {
+      while (1) {
         if (n2 <= 1) { break; }
 
         if (n2 % 2 == 0) {
-            n2 = n2 / 2;
+          n2 = n2 / 2;
         } else {
-            strResult = "= ";
-            for (let i = 0; i < vWork.length; i++) {
-                strResult += vWork[i] + " + ";
-            }
-            vOut.push(strResult + n1 + " + " + n1 + " * " + (n2 - 1));
-            n2 = (n2 - 1) / 2;
-            vWork.push(n1);
+          strResult = "= ";
+          for (let i = 0; i < vWork.length; i++) {
+            strResult += vWork[i] + " + ";
+          }
+          vOut.push(strResult + n1 + " + " + n1 + " * " + (n2 - 1));
+          n2 = (n2 - 1) / 2;
+          vWork.push(n1);
         }
 
         n1 = (n1 * 2);
 
         strResult = "= ";
         for (let i = 0; i < vWork.length; i++) {
-            strResult += vWork[i] + " + ";
+          strResult += vWork[i] + " + ";
         }
 
         if (n2 == 1) {
-            vOut.push(strResult + n1 + " * " + n2);
-            vOut.push(strResult + n1);
+          vOut.push(strResult + n1 + " * " + n2);
+          vOut.push(strResult + n1);
         } else {
-            vOut.push(strResult + n1 + " * " + n2);
+          vOut.push(strResult + n1 + " * " + n2);
         }
-    }
+      }
 
-    var nResult = 0;
-    for (let i = 0; i < vWork.length; i++) {
+      var nResult = 0;
+      for (let i = 0; i < vWork.length; i++) {
         nResult += vWork[i];
+      }
+      nResult += n1;
+      vOut.push("= " + nResult);
+
+      document.getElementById("result").innerHTML = vOut.join("\n");
     }
-    nResult += n1;
-    vOut.push("= " + nResult);
 
-    document.getElementById("result").innerHTML = vOut.join("\n");
-}
-
-</script>
+  </script>
 </head>
+
 <body>
 
-<h2>peasant multiplication</h2>
-5桁 * 5桁 まで<br />
-<input type="text" id="txtN1" value="12345" maxlength="5" size="7" oninput="value = value.replace(/[^0-9]+/i,'');" /> ×
-<input type="text" id="txtN2" value="67890" maxlength="5" size="7" oninput="value = value.replace(/[^0-9]+/i,'');" />
-<input type="button" value="calc" onclick="doCalc()" /><br />
-<br />
+  <h2>peasant multiplication</h2>
+  5桁 * 5桁 まで<br />
+  <input type="text" id="txtN1" value="12345" maxlength="5" size="7" oninput="value = value.replace(/[^0-9]+/i,'');" />
+  ×
+  <input type="text" id="txtN2" value="67890" maxlength="5" size="7" oninput="value = value.replace(/[^0-9]+/i,'');" />
+  <input type="button" value="calc" onclick="doCalc()" /><br />
+  <br />
 
-<textarea id="result" rows="50" col="20" style="width:700px;height:400px;">
+  <textarea id="result" rows="50" col="20" style="width:700px;height:400px;">
 </textarea>
 
 </body>
+
 </html>
