@@ -8,3 +8,4 @@
 ### 関数方程式
 
 https://www.youtube.com/watch?v=RVqrg5sLGE4
+
